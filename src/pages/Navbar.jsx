@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import userIcon from '../assets/user.png'
+import { FaUser } from "react-icons/fa6";
+import { FaLock } from "react-icons/fa";
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
+    const {logOut} = useContext(AuthContext);
+
+    const { user } = useContext(AuthContext);
+    const links = <div className="flex gap-2">
+        <Link className='hover:text-orange-700 font-semibold'>HOME</Link>
+        <Link className='hover:text-orange-700 font-semibold'>ALL-REVIEWS</Link>
+        <Link className='hover:text-orange-700 font-semibold'>MY-REVIEWS</Link>
+        <Link className='hover:text-orange-700 font-semibold'>GAME-WATCHLIST</Link>
+    </div>
     return (
         <div className="navbar w-11/12  mx-auto bg-base-100">
             <div className="navbar-start">
@@ -22,22 +36,28 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><a>Item 1</a></li>
-                        <li><a>Item 3</a></li>
+                        {links}
                     </ul>
                 </div>
                 <div>
-                    <h2 className='text-lg md:text-xl lg:text-2xl font-bold'>Game Insight Pro</h2>
+                    <Link to="/" className='text-lg md:text-xl lg:text-2xl font-bold'>Game Insight Pro</Link>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    <li><a>Item 1</a></li>
-                    <li><a>Item 3</a></li>
+                <ul className="menu menu-horizontal space-x-2 px-1">
+                    {links}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Button</a>
+            <div className="navbar-end gap-3">
+
+                {user?.email ? <><img className='w-9 h-9 rounded-full' src={user?.photoURL ? user.photoURL : userIcon} alt="" />
+                    <h2>{user?.email}</h2>
+                    <Link to="/" onClick={logOut} className='flex items-center gap-1 text-orange-800'><span><FaUser></FaUser></span>Logout</Link>
+                    </> : <>
+                    <Link to="/login" className='flex items-center gap-1 text-orange-800'><span><FaUser></FaUser></span>Login</Link>
+                    <h2>|</h2>
+                    <Link to="/register" className='flex items-center gap-1 text-orange-800'><span><FaLock></FaLock></span>Sing Up</Link>
+                </>}
             </div>
         </div>
     );

@@ -4,16 +4,18 @@ import userIcon from '../assets/user.png'
 import { FaUser } from "react-icons/fa6";
 import { FaLock } from "react-icons/fa";
 import { AuthContext } from '../provider/AuthProvider';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
     const {logOut} = useContext(AuthContext);
 
     const { user } = useContext(AuthContext);
     const links = <div className="flex gap-2">
-        <Link className='hover:text-orange-700 font-semibold'>HOME</Link>
-        <Link className='hover:text-orange-700 font-semibold'>ALL-REVIEWS</Link>
-        <Link className='hover:text-orange-700 font-semibold'>MY-REVIEWS</Link>
-        <Link className='hover:text-orange-700 font-semibold'>GAME-WATCHLIST</Link>
+        <Link to="/" className='hover:text-orange-700 font-semibold'>Home</Link>
+        <Link to="/addreview" className='hover:text-orange-700 font-semibold'>Add-review</Link>
+        <Link className='hover:text-orange-700 font-semibold'>All-reviews</Link>
+        <Link className='hover:text-orange-700 font-semibold'>My-reviews</Link>
+        <Link className='hover:text-orange-700 font-semibold'>Game-watchlist</Link>
     </div>
     return (
         <div className="navbar w-11/12  mx-auto bg-base-100">
@@ -39,8 +41,10 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <div>
-                    <Link to="/" className='text-lg md:text-xl lg:text-2xl font-bold'>Game Insight Pro</Link>
+                <div className='flex items-center justify-center gap-1'>
+                    <img className='w-8 h-8 rounded-xl' src={logo} alt="" />
+                    <Link to="/" className='text-lg md:text-xl lg:text-2xl font-bold'>
+                    Game Insight Pro</Link>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">

@@ -1,8 +1,11 @@
 import React from 'react';
 import { FcRating } from "react-icons/fc";
+import { Link } from 'react-router-dom';
 
 const ReviewCard = ({ review }) => {
-    const { gameTitle, genre, gameCover, displayName, rating } = review;
+    
+    const { gameTitle, genre, gameCover, displayName, rating, _id } = review;
+   
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 bg-base-100 shadow-xl">
             <figure>
@@ -20,7 +23,7 @@ const ReviewCard = ({ review }) => {
                     <p><span className='text-green-700'>Reviewer Name:</span> {displayName}</p>
                 </div>
                 <div className="card-actions items-end justify-center">
-                    <button className="w-full bg-green-700 text-white py-2 px-4 rounded hover:bg-green-500 hover:font-semibold">Review Details</button>
+                    <Link to={`/reviewdetails/${_id}`} className="w-full bg-green-700 text-white py-2 px-4 rounded hover:bg-green-500 hover:font-semibold">Review Details</Link>
                 </div>
             </div>
         </div>

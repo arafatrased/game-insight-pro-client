@@ -14,7 +14,7 @@ const Allreview = () => {
                 </div>
                 <div className='w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5'>
                     {
-                        allReviews.map(review =><ReviewCard review={review}></ReviewCard>)
+                        allReviews.map(review =><ReviewCard key={review._id} review={review}></ReviewCard>)
                     }
                 </div>
             </div>

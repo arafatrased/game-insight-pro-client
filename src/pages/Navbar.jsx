@@ -15,14 +15,14 @@ const Navbar = () => {
         <Link to="/allreviews" className='hover:text-orange-700 font-semibold'>All-reviews</Link>
         {
             user && <><Link to="/addreview" className='hover:text-orange-700 font-semibold'>Add-review</Link>
-                <Link to='/myreview' className='hover:text-orange-700 font-semibold'>My-reviews</Link>
+                <Link to={`/myreview/${user?.email}`} className='hover:text-orange-700 font-semibold'>My-reviews</Link>
                 <Link to='/gamewatchlist' className='hover:text-orange-700 font-semibold'>Game-watchlist</Link>
                 </>
         }
     </div>
     return (
-        <div className='w-full bg-orange-100'>
-            <div className="navbar w-11/12  mx-auto">
+        <div className='w-full bg-orange-100 mt-0'>
+            <div className="navbar w-11/12 mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

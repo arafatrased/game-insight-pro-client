@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 
 const Login = () => {
 
-    const {loginUser, setUser} = useContext(AuthContext);
+    const {loginUser, setUser } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -21,9 +21,16 @@ const Login = () => {
             if (user) {
                 toast.success(`Successfully Login ${user.email}`);
                 setUser(user);
-                // navigate(location?.state ? location.state : "/")
+                setLoading
+                const loginInfo = {email};
+                // fetch(`http://localhost:5000/myreview/${email}`)
+                //     .then(res => res.json())
+                //     .then(data =>{
+                //         setMyreview(data);
+                //     })
+                // navigate(location?.state ? location.state : "/") 
                 navigate(location?.state ? location.state : "/")
-            }
+            } 
         })
         .catch((error) => {
             toast.error(`Wrong Email or Password`);

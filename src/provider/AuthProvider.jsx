@@ -7,6 +7,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [myReview, setMyreview] = useState([]);
 
     const createUser = (email, password) =>{
         setLoading(true);
@@ -42,6 +43,8 @@ const AuthProvider = ({ children }) => {
         loginUser,
         logOut,
         updateUserProfile,
+        setMyreview,
+        myReview,
     }
 
 

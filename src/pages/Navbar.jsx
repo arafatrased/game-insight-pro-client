@@ -15,7 +15,7 @@ const Navbar = () => {
         <Link to="/allreviews" className='hover:text-orange-700 font-semibold'>All-reviews</Link>
         {
             user && <><Link to="/addreview" className='hover:text-orange-700 font-semibold'>Add-review</Link>
-                <Link to={`/myreview/${user?.email}`} className='hover:text-orange-700 font-semibold'>My-reviews</Link>
+                <Link to={`/myreview`} className='hover:text-orange-700 font-semibold'>My-reviews</Link>
                 <Link to='/gamewatchlist' className='hover:text-orange-700 font-semibold'>Game-watchlist</Link>
                 </>
         }

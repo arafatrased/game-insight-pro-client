@@ -86,7 +86,6 @@ const AddReview = () => {
 
   //getting the data
   const saveReview = (data) => {
-    console.log('Review Data:', data);
     fetch('http://localhost:5000/addreview',{
       method: 'POST',
       headers: {

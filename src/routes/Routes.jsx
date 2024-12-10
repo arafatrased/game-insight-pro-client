@@ -9,7 +9,7 @@ import PrivateRoute from '../private/PrivateRoute';
 import Allreview from '../pages/Allreview';
 import ReviewDetails from '../components/ReviewDetails';
 import MyReview from '../pages/MyReview';
-import Test from '../pages/Test';
+
 
 const router = createBrowserRouter([
     {
@@ -44,14 +44,10 @@ const router = createBrowserRouter([
           loader: ({params})=> fetch(`http://localhost:5000/reviewdetails/${params.id}`)
         },
         {
-          path: '/myreview/:email',
-          element: <MyReview></MyReview>,
-          loader: ({params})=>fetch(`http://localhost:5000/myreview/${params.email}`)
+          path: '/myreview',
+          element: <PrivateRoute><MyReview></MyReview></PrivateRoute>,
         },
-        {
-          path: '/test',
-          element: <Test></Test>,
-        }
+      
     ]
     },
   ]);

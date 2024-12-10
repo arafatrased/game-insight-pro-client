@@ -3,7 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const ReviewDetails = () => {
     const reviewdata = useLoaderData();
-    const { gameTitle, genre, gameCover, publishingYear, reviewDescription, displayName, rating } = reviewdata;
+    const { gameTitle, genre, email, gameCover, publishingYear, reviewDescription, displayName, rating } = reviewdata;
     return (
         <div className="card bg-base-100 image-full shadow-xl">
             <figure>
@@ -21,10 +21,12 @@ const ReviewDetails = () => {
                         <h2>Ratings: <span className='text-red-300 font-bold'>{rating}</span></h2>
                         <h2>Publishing Year: <span className='text-red-300 font-bold'>{publishingYear}</span></h2>
                         <h2>Reviewer: <span className='text-red-300 font-bold'>{displayName}</span></h2>
+                        <h2>Email: <span className='text-red-300 font-bold'>{email}</span></h2>
                     </div>
                 </div>
                 <div className="card-actions justify-center">
                     <button className="btn bg-orange-400">Play Now</button>
+                    <button onClick={() => handleWatchList(email)} className="btn bg-orange-400">Add to Watchlist</button>
                 </div>
             </div>
         </div>

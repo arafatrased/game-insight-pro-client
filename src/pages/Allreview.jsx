@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ReviewCard from '../components/ReviewCard';
+import { Typewriter } from 'react-simple-typewriter'
 
 const Allreview = () => {
     const allReviewsData = useLoaderData();
@@ -8,7 +9,7 @@ const Allreview = () => {
     const [sortOption, setSortOption] = useState("");
     const [filteredGenre, setFilteredGenre] = useState("");
 
-    const handleFilter = () =>{
+    const handleFilter = () => {
         const filteredReviews = allReviewsData.filter((review) => review.genre === filteredGenre)
         setAllReviews(filteredReviews)
     }
@@ -27,9 +28,27 @@ const Allreview = () => {
     };
     return (
         <div className='min-h-screen'>
-            <div className='my-8'>
+            <div className='mb-8'>
                 <div>
-                    <h2 className='text-center text-green-700 font-bold text-3xl mt-8 mb-4'>All Reviews</h2>
+                    <div className='flex items-center justify-center text-5xl pb-6'>
+                        <h1
+                            style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}
+                        >
+                            Highest {' '}
+                            <span style={{ color: 'Green', fontWeight: 'bold' }}>
+                                {/* Style will be inherited from the parent element */}
+                                <Typewriter
+                                    words={['Rated', 'Games']}
+                                    loop={5}
+                                    cursor
+                                    cursorStyle='_'
+                                    typeSpeed={70}
+                                    deleteSpeed={50}
+                                    delaySpeed={1000}
+                                />
+                            </span>
+                        </h1>
+                    </div>
                     <p className='w-6/12 mx-auto text-center mb-8'>Reviews that gave by the user with their playing experiences and feelings they shared with us for all of our users which will convey an inmportance toward playing further.</p>
                 </div>
                 <div className='flex justify-center items-center gap-10'>
@@ -47,7 +66,7 @@ const Allreview = () => {
                             <option value="year-asc">Year</option>
                         </select>
                     </div>
-                    
+
                     <div className="mb-6 flex justify-center gap-3">
                         <select
                             value={filteredGenre}

@@ -6,7 +6,8 @@ import imgslider2 from '../assets/PofP.jpg'
 import imgslider3 from '../assets/chess2.jpg'
 import BlogSection from '../components/Blog';
 import ContactPage from '../components/ContactPage';
-import SortReview from '../components/SortReview';
+import { Typewriter } from 'react-simple-typewriter'
+
 
 
 const Home = () => {
@@ -25,7 +26,7 @@ const Home = () => {
                             <a href="#slide4" className="btn btn-circle">❮</a>
                             <a href="#slide2" className="btn btn-circle">❯</a>
                         </div>
-                        
+
                     </div>
                     <div id="slide2" className="carousel-item relative w-full">
                         <img
@@ -54,9 +55,9 @@ const Home = () => {
                             <p className='text-white'>Play with intense and suspense</p>
                             <button className="btn bg-orange-400">Play Now</button>
                         </div>
-                        
+
                     </div>
-                    
+
                 </div>
             </div>
             <div className='my-5'>
@@ -69,7 +70,25 @@ const Home = () => {
             </div>
             <BlogSection></BlogSection>
             <ContactPage></ContactPage>
-            <SortReview></SortReview>
+            <div className='flex items-center justify-center text-5xl py-6'>
+                <h1
+                    style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}
+                >
+                    Sight On {' '}
+                    <span style={{ color: 'red', fontWeight: 'bold' }}>
+                        {/* Style will be inherited from the parent element */}
+                        <Typewriter
+                            words={['Play', 'Games', 'Review', 'Insight!']}
+                            loop={5}
+                            cursor
+                            cursorStyle='_'
+                            typeSpeed={70}
+                            deleteSpeed={50}
+                            delaySpeed={1000}
+                        />
+                    </span>
+                </h1>
+            </div>
         </div>
     );
 };

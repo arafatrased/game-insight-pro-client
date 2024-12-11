@@ -61,7 +61,7 @@ const Allreview = () => {
                             <option value="Simulation">Simulation</option>
                             <option value="RPG">RPG</option>
                         </select>
-                        <button onClick={handleFilter} className='px-4 py-2 bg-green-700 text-white rounded-lg'>Filter</button>
+                        <button onClick={handleFilter} className='px-4 py-2 bg-green-700 text-white rounded-lg'>Filter By</button>
                     </div>
                 </div>
                 <div className='w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5'>

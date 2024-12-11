@@ -118,10 +118,10 @@ const MyReview = () => {
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Name</th>
+                                <th>Game Title</th>
                                 <th>Email</th>
-                                <th>User Creation Time</th>
-                                <th>User Last Login</th>
+                                <th>Rating</th>
+                                <th>Genre</th>
                                 <th>Operations</th>
                             </tr>
                         </thead>

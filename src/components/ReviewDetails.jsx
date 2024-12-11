@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 const ReviewDetails = () => {
     const reviewdata = useLoaderData();
     const { gameTitle, genre, email, gameCover, publishingYear, reviewDescription, displayName, rating } = reviewdata;
+    const watchlistData = { gameTitle, genre, email, gameCover, publishingYear, reviewDescription, displayName, rating };
     const handleWatchList = (review) =>{
         fetch('http://localhost:5000/addwatchlist', {
             method: 'POST',
@@ -42,7 +43,7 @@ const ReviewDetails = () => {
                 </div>
                 <div className="card-actions justify-center">
                     <button className="btn bg-orange-400">Play Now</button>
-                    <button onClick={() => handleWatchList(reviewdata)} className="btn bg-orange-400">Add to Watchlist</button>
+                    <button onClick={() => handleWatchList(watchlistData)} className="btn bg-orange-400">Add to Watchlist</button>
                 </div>
             </div>
         </div>

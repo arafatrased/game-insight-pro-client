@@ -4,6 +4,9 @@ import ReviewCard from '../components/ReviewCard';
 import imgslider1 from '../assets/hitman.jpeg'
 import imgslider2 from '../assets/PofP.jpg'
 import imgslider3 from '../assets/chess2.jpg'
+import BlogSection from '../components/Blog';
+import ContactPage from '../components/ContactPage';
+import SortReview from '../components/SortReview';
 
 
 const Home = () => {
@@ -57,13 +60,16 @@ const Home = () => {
                 </div>
             </div>
             <div className='my-5'>
-                <h2 className='text-center text-green-700 font-bold text-5xl my-10'>All Reviews</h2>
+                <h2 className='text-center text-green-700 font-bold text-5xl my-10'>Highest Rated Game</h2>
                 <div className='w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5'>
                     {
                         reviews.map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)
                     }
                 </div>
             </div>
+            <BlogSection></BlogSection>
+            <ContactPage></ContactPage>
+            <SortReview></SortReview>
         </div>
     );
 };

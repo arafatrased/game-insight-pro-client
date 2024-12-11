@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const ReviewCard = ({ review }) => {
     
-    const { gameTitle, genre, gameCover, displayName, rating, _id } = review;
+    const { gameTitle, genre, publishingYear, gameCover, displayName, rating, _id } = review;
    
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 bg-base-100 shadow-xl">
@@ -19,6 +19,7 @@ const ReviewCard = ({ review }) => {
                 <div className='flex items-center gap-1 font-bold'>
                     <span className='text-green-700'>Rating: </span> <span><FcRating/></span>{rating}</div>
                 <p className=''><span className='text-green-700'>Genre:</span> {genre}</p>
+                <p className=''><span className='text-green-700'>Year:</span> {publishingYear}</p>
                 <div className='flex-grow'>
                     <p><span className='text-green-700'>Reviewer Name:</span> {displayName}</p>
                 </div>

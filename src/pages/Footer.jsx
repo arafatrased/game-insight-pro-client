@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <>
-            <footer className="footer bg-base-200 text-base-content p-10">
+            <footer className="footer bg-orange-100 text-base-content p-10">
                 <nav>
                     <h6 className="footer-title">Services</h6>
                     <a className="link link-hover">Branding</a>
@@ -25,10 +25,10 @@ const Footer = () => {
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
             </footer>
-            <footer className="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">
+            <footer className="footer bg-orange-100 text-base-content border-base-300 border-t px-10 py-4">
                 <aside className="grid-flow-col items-center">
                     <p>
-                        ACME Industries Ltd.
+                        AHR
                         <br />
                         Providing reliable tech since 1992
                     </p>
@@ -71,9 +71,9 @@ const Footer = () => {
                     </div>
                 </nav>
             </footer>
-            <footer className="footer footer-center bg-base-300 text-base-content p-4">
+            <footer className="footer footer-center bg-orange-100 text-base-content p-4">
                 <aside>
-                    <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+                    <p>Copyright © {new Date().getFullYear()} - All right reserved by AHR</p>
                 </aside>
             </footer>
         </>

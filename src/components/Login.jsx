@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
+import { FcGoogle } from "react-icons/fc";
+
 
 
 const Login = () => {
 
-    const {loginUser, setUser } = useContext(AuthContext);
+    const {loginUser, setUser, logInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -21,20 +23,26 @@ const Login = () => {
             if (user) {
                 toast.success(`Successfully Login ${user.email}`);
                 setUser(user);
-                setLoading
-                const loginInfo = {email};
-                // fetch(`http://localhost:5000/myreview/${email}`)
-                //     .then(res => res.json())
-                //     .then(data =>{
-                //         setMyreview(data);
-                //     })
-                // navigate(location?.state ? location.state : "/") 
                 navigate(location?.state ? location.state : "/")
             } 
         })
         .catch((error) => {
             toast.error(`Wrong Email or Password`);
             
+        })
+    }
+    const handleGoogleLogin = () =>{
+        logInWithGoogle()
+        .then(result =>{
+            const user = result.user;
+            if (user) {
+                toast.success(`Successfully Login ${user.email}`);
+                setUser(user);
+                navigate(location?.state ? location.state : "/")
+            } 
+        })
+        .catch(error => {
+            toast.error(`Wrong Email or Password`);
         })
     }
 
@@ -74,6 +82,9 @@ const Login = () => {
                     <input className="btn bg-green-700 hover:text-black text-white" type="submit" value="Login" />
                 </div>
             </form>
+           <div className='flex items-center justify-center mt-5'>
+           <button onClick={handleGoogleLogin} className="btn hover:text-black text-black"><span className='text-bold'><FcGoogle/></span>SignIn With Google</button>
+           </div>
         </div>
     );
 };

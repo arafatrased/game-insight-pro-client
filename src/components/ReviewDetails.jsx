@@ -1,9 +1,25 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const ReviewDetails = () => {
     const reviewdata = useLoaderData();
     const { gameTitle, genre, email, gameCover, publishingYear, reviewDescription, displayName, rating } = reviewdata;
+    const handleWatchList = (review) =>{
+        fetch('http://localhost:5000/addwatchlist', {
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.insertedId){
+                toast.success('Review Added to watchlist!');
+            }
+        })
+    }
     return (
         <div className="card bg-base-100 image-full shadow-xl">
             <figure>
@@ -26,7 +42,7 @@ const ReviewDetails = () => {
                 </div>
                 <div className="card-actions justify-center">
                     <button className="btn bg-orange-400">Play Now</button>
-                    <button onClick={() => handleWatchList(email)} className="btn bg-orange-400">Add to Watchlist</button>
+                    <button onClick={() => handleWatchList(reviewdata)} className="btn bg-orange-400">Add to Watchlist</button>
                 </div>
             </div>
         </div>

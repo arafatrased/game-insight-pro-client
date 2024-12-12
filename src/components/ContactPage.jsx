@@ -2,10 +2,10 @@ import React from 'react';
 
 const ContactPage = () => {
     return (
-        <section className="p-6 bg-gray-100">
+        <section className="p-6 bg-gray-100 dark:bg-black">
             <div className="container mx-auto max-w-4xl">
                 <h2 className='text-center text-green-700 font-bold text-5xl my-10'>Contact Us</h2>
-                <div className="bg-white p-6 rounded-lg shadow-lg">
+                <div className="bg-white dark:bg-black dark:text-white p-6 rounded-lg shadow-lg">
                     <form className="space-y-6">
                         {/* Name Field */}
                         <div>

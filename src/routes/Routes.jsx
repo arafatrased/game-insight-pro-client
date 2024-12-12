@@ -10,6 +10,7 @@ import Allreview from '../pages/Allreview';
 import ReviewDetails from '../components/ReviewDetails';
 import MyReview from '../pages/MyReview';
 import MyWatchList from '../pages/MyWatchList';
+import HomePage from '../components/HomePage';
 
 
 const router = createBrowserRouter([
@@ -52,7 +53,9 @@ const router = createBrowserRouter([
           path: '/mywatchlist',
           element: <PrivateRoute><MyWatchList></MyWatchList></PrivateRoute>,
           loader: ()=> fetch('http://localhost:5000/watchlist')
-        }
+        },
+       
+
       
     ]
     },

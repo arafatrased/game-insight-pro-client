@@ -165,7 +165,7 @@ const MyReview = () => {
                             />
                         </div>
 
-                        <form onSubmit={handleUpdateFormData} className="flex flex-col gap-5 p-4">
+                        <form onSubmit={handleUpdateFormData} className="flex flex-col gap-1 p-4">
                             <div>
                                 <label
 
@@ -230,7 +230,7 @@ const MyReview = () => {
                                     Review Description
                                 </label>
                                 <textarea
-                                    rows="4"
+                                    rows="3"
                                     type="text"
                                     name="description"
                                     defaultValue={updateData.reviewDescription

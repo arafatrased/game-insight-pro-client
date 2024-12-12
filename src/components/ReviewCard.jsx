@@ -8,7 +8,7 @@ const ReviewCard = ({ review }) => {
     const { gameTitle, genre, publishingYear, gameCover, displayName, rating, _id } = review;
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 bg-base-100 shadow-xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 bg-base-100 dark:bg-black dark:text-white shadow-xl">
             <figure>
                 <img
                     className='w-full h-full rounded-sm'

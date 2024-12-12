@@ -5,6 +5,7 @@ import { FaUser } from "react-icons/fa6";
 import { FaLock } from "react-icons/fa";
 import { AuthContext } from '../provider/AuthProvider';
 import logo from '../assets/logo.png';
+import { Tooltip } from 'react-tooltip';
 
 const Navbar = () => {
     const { logOut } = useContext(AuthContext);
@@ -58,8 +59,8 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end gap-3">
 
-                    {user?.email ? <><img className='w-9 h-9 rounded-full' src={user?.photoURL ? user.photoURL : userIcon} alt="" />
-                        <h2 className='hidden md:inline-block'>{user?.email}</h2>
+                    {user?.email ? <><img data-tooltip-id="my-tooltip22" className='w-9 h-9 rounded-full' src={user?.photoURL ? user.photoURL : userIcon} alt="" />
+                    
                         <Link to="/" onClick={logOut} className='flex items-center gap-1 text-orange-800'><span><FaUser></FaUser></span>Logout</Link>
                     </> : <>
                         <Link to="/login" className='flex items-center gap-1 text-orange-800'><span><FaUser></FaUser></span>Login</Link>
@@ -68,6 +69,11 @@ const Navbar = () => {
                     </>}
                 </div>
             </div>
+            <Tooltip className='z-50' id="my-tooltip22">
+                    <div>
+                        <h3>{user?.displayName}</h3>       
+                    </div>
+            </Tooltip>
         </div>
     );
 };

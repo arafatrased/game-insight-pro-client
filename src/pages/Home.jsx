@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ReviewCard from '../components/ReviewCard';
 import imgslider1 from '../assets/hitman.jpeg'
@@ -6,16 +6,28 @@ import imgslider2 from '../assets/PofP.jpg'
 import imgslider3 from '../assets/chess2.jpg'
 import BlogSection from '../components/Blog';
 import ContactPage from '../components/ContactPage';
-import { Typewriter } from 'react-simple-typewriter'
+
 
 
 
 const Home = () => {
     const reviewData = useLoaderData();
     const [reviews, setReviews] = useState(reviewData);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+    
+    const toggleTheme = () => {
+        setIsDarkMode(!isDarkMode);
+    };
+    useEffect(() => {
+        const rootElement = document.documentElement;
+        if (isDarkMode) {
+            rootElement.classList.add('dark');
+        } else {
+            rootElement.classList.remove('dark');
+        }
+    }, [isDarkMode]);
     return (
-        <div className='min-h-screen'>
-
+        <div className='min-h-screen dark:bg-black'>
             <div>
                 <div className="carousel h-[60vh] w-full">
                     <div id="slide1" className="carousel-item relative w-full">
@@ -60,6 +72,12 @@ const Home = () => {
 
                 </div>
             </div>
+            <button
+                onClick={toggleTheme}
+                className="px-4 py-2 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 dark:bg-yellow-400 dark:hover:bg-yellow-500 transition-colors duration-300"
+            >
+                {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+            </button>
             <div className='my-5'>
                 <h2 className='text-center text-green-700 font-bold text-5xl my-10'>Highest Rated Game</h2>
                 <div className='w-11/12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5'>
@@ -70,6 +88,7 @@ const Home = () => {
             </div>
             <BlogSection></BlogSection>
             <ContactPage></ContactPage>
+            
         </div>
     );
 };

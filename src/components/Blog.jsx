@@ -37,7 +37,7 @@ const BlogSection = () => {
 
 
     return (
-        <section className="p-6 bg-gray-100">
+        <section className="p-6 bg-gray-100 dark:bg-black">
             <div className="container mx-auto">
                 <h2 className='text-center text-green-700 font-bold text-5xl my-10'>Our Blogs</h2>
                 <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2">

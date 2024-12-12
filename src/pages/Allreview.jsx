@@ -34,11 +34,11 @@ const Allreview = () => {
                         <h1
                             style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}
                         >
-                            Highest {' '}
+                            All {' '}
                             <span style={{ color: 'Green', fontWeight: 'bold' }}>
                                 {/* Style will be inherited from the parent element */}
                                 <Typewriter
-                                    words={['Rated', 'Games']}
+                                    words={['Games', 'Reviews']}
                                     loop={5}
                                     cursor
                                     cursorStyle='_'

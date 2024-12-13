@@ -7,7 +7,7 @@ const ReviewDetails = () => {
     const { gameTitle, genre, email, gameCover, publishingYear, reviewDescription, displayName, rating } = reviewdata;
     const watchlistData = { gameTitle, genre, email, gameCover, publishingYear, reviewDescription, displayName, rating };
     const handleWatchList = (review) =>{
-        fetch('http://localhost:5000/addwatchlist', {
+        fetch('https://game-insight-pro-server.vercel.app/addwatchlist', {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

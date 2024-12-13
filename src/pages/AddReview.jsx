@@ -86,7 +86,7 @@ const AddReview = () => {
 
   //getting the data
   const saveReview = (data) => {
-    fetch('http://localhost:5000/addreview',{
+    fetch('https://game-insight-pro-server.vercel.app/addreview',{
       method: 'POST',
       headers: {
         'content-type' : 'application/json'

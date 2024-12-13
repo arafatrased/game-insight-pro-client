@@ -10,7 +10,7 @@ const MyWatchList = () => {
             <h2 className='text-center text-green-700 font-bold text-3xl mt-8 mb-4'>My Reviews</h2>
             <div className="overflow-x-auto">
                     <table className="table">
-                        {/* head */}
+
                         <thead>
                             <tr>
                                 <th></th>

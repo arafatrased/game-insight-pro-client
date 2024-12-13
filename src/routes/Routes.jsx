@@ -10,7 +10,6 @@ import Allreview from '../pages/Allreview';
 import ReviewDetails from '../components/ReviewDetails';
 import MyReview from '../pages/MyReview';
 import MyWatchList from '../pages/MyWatchList';
-import HomePage from '../components/HomePage';
 
 
 const router = createBrowserRouter([
@@ -21,7 +20,7 @@ const router = createBrowserRouter([
         {
             path: '/',
             element: <Home></Home>,
-            loader: ()=> fetch('http://localhost:5000/homereview')
+            loader: ()=> fetch('https://game-insight-pro-server.vercel.app/homereview')
         },
         {
             path: "/addreview",
@@ -38,12 +37,12 @@ const router = createBrowserRouter([
         {
           path: '/allreviews',
           element: <Allreview></Allreview>,
-          loader: ()=> fetch('http://localhost:5000/allreviews')
+          loader: ()=> fetch('https://game-insight-pro-server.vercel.app/allreviews')
         },
         {
           path: '/reviewdetails/:id',
           element: <PrivateRoute><ReviewDetails></ReviewDetails></PrivateRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/reviewdetails/${params.id}`)
+          loader: ({params})=> fetch(`https://game-insight-pro-server.vercel.app/reviewdetails/${params.id}`)
         },
         {
           path: '/myreview',
@@ -52,12 +51,9 @@ const router = createBrowserRouter([
         {
           path: '/mywatchlist',
           element: <PrivateRoute><MyWatchList></MyWatchList></PrivateRoute>,
-          loader: ()=> fetch('http://localhost:5000/watchlist')
+          loader: ()=> fetch('https://game-insight-pro-server.vercel.app/watchlist')
         },
-       
-
-      
-    ]
+      ]
     },
   ]);
 

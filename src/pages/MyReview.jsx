@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2'
-// icons
 import { RxCross1 } from "react-icons/rx";
 
 const MyReview = () => {
@@ -14,7 +13,7 @@ const MyReview = () => {
     useEffect(() => {
         const fetchItems = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/myreviews?email=${userEmail}`);
+                const response = await fetch(`https://game-insight-pro-server.vercel.app/myreviews?email=${userEmail}`);
                 const data = await response.json();
                 setItems(data);
             } catch (error) {
@@ -39,7 +38,7 @@ const MyReview = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/delete/${id}`, {
+                fetch(`https://game-insight-pro-server.vercel.app/delete/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -59,7 +58,6 @@ const MyReview = () => {
     }
     const handleUpdate = (item) => {
         setisModalOpen(true);
-        console.log(item)
         setUpdateData(item)
     }
 
@@ -74,11 +72,10 @@ const MyReview = () => {
         const reviewDescription = form.description.value;
         const rating = form.rating.value;
         const publishingYear = form.publishyear.value;
-        const id = updateData._id
-        console.log(displayName, email, gameCover, gameTitle, genre, reviewDescription, rating, publishingYear, id)
+        const id = updateData._id;
         const updatedReview = { displayName, email, gameCover, gameTitle, genre, reviewDescription, rating, publishingYear };
 
-        fetch(`http://localhost:5000/update/${id}`, {
+        fetch(`https://game-insight-pro-server.vercel.app/update/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -87,7 +84,6 @@ const MyReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if(data.modifiedCount>0){
                     Swal.fire({
                         position: "center",
@@ -114,7 +110,7 @@ const MyReview = () => {
                 }
                 <div className="overflow-x-auto">
                     <table className="table">
-                        {/* head */}
+
                         <thead>
                             <tr>
                                 <th></th>

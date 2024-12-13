@@ -45,7 +45,7 @@ const Register = () => {
             })
         })
         .catch(error => {
-            console.log(error);
+            toast.error(`Error Occured ${error}`);
         });
         
 

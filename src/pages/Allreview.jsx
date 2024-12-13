@@ -51,7 +51,7 @@ const Allreview = () => {
                     </div>
                     <p className='w-6/12 mx-auto text-center mb-8'>Reviews that gave by the user with their playing experiences and feelings they shared with us for all of our users which will convey an inmportance toward playing further.</p>
                 </div>
-                <div className='flex justify-center items-center gap-10'>
+                <div className='flex flex-col md:flex-row justify-center items-center gap-10'>
                     <div className="mb-6 flex items-center justify-center font-bold">
                         <h2 className='mr-3 text-xl text-orange-700'>Sort By: </h2>
                         <select
